@@ -41,21 +41,18 @@ function Register() {
               n.text().then(text => {
                 console.log(text);
                 alert(text);
-                setError(text);
+                navigate("/Register");
               })
           );
         }
         return d.json();
       })
       .then(res => {
-        if (error === "") {
           console.log(res);
           storeUser(res);
           console.log("ok");
           navigate("/");
-        } else {
           storeUser(null);
-        }
       })
       .catch(err => {
         console.log(err);
