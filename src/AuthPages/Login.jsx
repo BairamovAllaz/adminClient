@@ -23,7 +23,7 @@ function Login() {
       email: email,
       password: password,
     };
-    const loginUrl = "/register/login";
+    const loginUrl = "https://admin-allaz.herokuapp.com/register/login";
     fetch(loginUrl, {
       headers: {
         "Content-Type": "application/json",
