@@ -48,10 +48,14 @@ function Login() {
         return d.json();
       })
       .then(res => {
-        console.log(res);
-        storeUser(res);
-        console.log("ok");
-        navigate("/");
+        if (error === "") {
+          console.log(res);
+          storeUser(res);
+          console.log("ok");
+          navigate("/");
+        } else {
+          storeUser(null);
+        }
       })
       .catch(err => {
         console.log(err);

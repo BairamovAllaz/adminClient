@@ -47,13 +47,13 @@ function Register() {
         return d.json();
       })
       .then(res => {
-        if (error === "") {
-          storeUser(res);
-          console.log("ok");
-          navigate("/");
-        } else {
-          storeUser(null);
-        }
+         if (error === "") {
+           storeUser(res);
+           console.log("ok");
+           navigate("/");
+         } else {
+           storeUser(null);
+         }
       })
       .catch(err => {
         console.log("There is something: " + err.message);
