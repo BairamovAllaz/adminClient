@@ -61,3 +61,4 @@ function Table({ columns, data, onChangeSelection, setSelectedRows }) {
 }
 
 export default Table;
+  
