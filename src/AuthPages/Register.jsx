@@ -34,8 +34,8 @@ function Register() {
       method: "POST",
     })
       .then(d => {
-        const n = d.clone();
         if (!d.ok) {
+          const n = d.clone();
           console.log(
             "From server: " +
               n.text().then(text => {
@@ -52,6 +52,8 @@ function Register() {
           storeUser(res);
           console.log("ok");
           navigate("/");
+        } else {
+          storeUser(null);
         }
       })
       .catch(err => {
