@@ -157,7 +157,7 @@ function Home() {
           console.log("There is something: " + err.message);
         });
     });
-    window.location.reload(0);
+    //window.location.reload(0);
   };
 
   const logOut = () => {
@@ -194,7 +194,7 @@ function Home() {
         .catch(err => {
           console.log("There is something: " + err.message);
         });
-      window.location.reload(0);
+     // window.location.reload(0);
     });
   };
 
