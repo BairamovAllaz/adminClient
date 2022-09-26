@@ -31,19 +31,18 @@ function Login() {
       body: JSON.stringify(user),
       method: "POST",
     })
-      .then(d => {
-        if (!d.ok) {
-          console.log(
-            "From server: " +
-              d.json().then(text => {
-                console.log(text);
-                alert(text);
-                setError(text);
-              })
-          );
-        }
-        return d.json();
-      })
+      .then(d => d.json()
+        // if (!d.ok) {
+        //   console.log(
+        //     "From server: " +
+        //       d.json().then(text => {
+        //         console.log(text);
+        //         alert(text);
+        //         setError(text);
+        //       })
+        //   );
+        // }
+      )
       .then(res => {
         if (error === "") {
           console.log(res);
