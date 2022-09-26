@@ -16,47 +16,48 @@ function Login() {
     localStorage.setItem("token", JSON.stringify(token.token));
   };
   const LoginTo = e => {
-    e.preventDefault();
-    localStorage.clear();
-    setError("");
-    const user = {
-      email: email,
-      password: password,
-    };
-    const loginUrl = "/register/login";
-    fetch(loginUrl, {
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(user),
-      method: "POST",
-    })
-      .then(d => {
-        if (!d.ok) {
-          console.log(
-            "From server: " +
-              d.text().then(text => {
-                console.log(text);
-                alert(text);
-                setError(text);
-              })
-          );
-        }
-        return d.json();
-      })
-      .then(res => {
-        if (error === "") {
-          console.log(res);
-          storeUser(res);
-          console.log("ok");
-          navigate("/");
-        } else {
-          storeUser(null);
-        }
-      })
-      .catch(err => {
-        console.log(err);
-      });
+    // e.preventDefault();
+    // localStorage.clear();
+    // setError("");
+    // const user = {
+    //   email: email,
+    //   password: password,
+    // };
+    // const loginUrl = "/register/login";
+    // fetch(loginUrl, {
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    //   body: JSON.stringify(user),
+    //   method: "POST",
+    // })
+    //   .then(d => {
+    //     if (!d.ok) {
+    //       console.log(
+    //         "From server: " +
+    //           d.text().then(text => {
+    //             console.log(text);
+    //             alert(text);
+    //             setError(text);
+    //           })
+    //       );
+    //     }
+    //     return d.json();
+    //   })
+    //   .then(res => {
+    //     if (error === "") {
+    //       console.log(res);
+    //       storeUser(res);
+    //       console.log("ok");
+    //       navigate("/");
+    //     } else {
+    //       storeUser(null);
+    //     }
+    //   })
+    //   .catch(err => {
+    //     console.log(err);
+    //   });
+    alert("hello")
   };
 
   return (
