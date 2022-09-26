@@ -134,6 +134,7 @@ function Home() {
     selectedRows.map(data => {
       fetch(loginUrl, {
         credentials: "same-origin",
+        withCredentials: true,
         headers: {
           Accept: "application/json",
           "Content-Type": "application/json",
@@ -172,6 +173,7 @@ function Home() {
     selectedRows.map(data => {
       fetch(loginUrl, {
         credentials: "same-origin",
+        withCredentials: true,
         headers: {
           Accept: "application/json",
           "Content-Type": "application/json",
