@@ -157,7 +157,6 @@ function Home() {
           console.log("There is something: " + err.message);
         });
     });
-    //window.location.reload(0);
   };
 
   const logOut = () => {
@@ -210,6 +209,8 @@ function Home() {
               className="d-inline-block align-top"
             />{" "}
             <span>Admin Panel</span>
+          </Navbar.Brand>
+          <Navbar.Brand href="#home">
             <span className="SpanDiv">
               <div className="inner">
                 <Button className="But" variant="danger" onClick={Delete}>
