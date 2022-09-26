@@ -127,7 +127,8 @@ function Home() {
     setSelectedRows(parametr);
   };
 
-  const Delete = () => {
+  const Delete = (e) => {
+    e.preventDefault();
     const loginUrl = "https://admin-allaz.herokuapp.com/user/delete";
 
     selectedRows.map(data => {
@@ -166,6 +167,7 @@ function Home() {
   };
 
   const Update = typeu => {
+    e.preventDefault();
     const loginUrl = `https://admin-allaz.herokuapp.com/user/${typeu}`;
     selectedRows.map(data => {
       fetch(loginUrl, {
