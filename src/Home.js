@@ -127,6 +127,10 @@ function Home() {
     setSelectedRows(parametr);
   };
 
+
+  useEffect(() => { 
+    console.log(selectedRows)
+  },[selectedRows])
   const Delete = (e) => {
     e.preventDefault();
     const loginUrl = "https://admin-allaz.herokuapp.com/user/delete";
