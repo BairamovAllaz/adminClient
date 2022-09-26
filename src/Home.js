@@ -142,7 +142,7 @@ function Home() {
       })
         .then(res => {
           if (res.ok) {
-            console.log("ok");
+             window.location.reload(0);
           } else {
             console.log(
               "From server: " +
@@ -180,7 +180,7 @@ function Home() {
       })
         .then(res => {
           if (res.ok) {
-            console.log("ok");
+            window.location.reload(0);
           } else {
             console.log(
               "From server: " +
@@ -194,7 +194,6 @@ function Home() {
         .catch(err => {
           console.log("There is something: " + err.message);
         });
-     // window.location.reload(0);
     });
   };
 
