@@ -57,7 +57,6 @@ function Login() {
         } else {
           storeUser(null);
         }
-         setError("");
       })
       .catch(err => {
         console.log(err);
