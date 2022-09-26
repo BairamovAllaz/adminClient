@@ -35,7 +35,7 @@ function Login() {
         if (!d.ok) {
           console.log(
             "From server: " +
-              d.text().then(text => {
+              d.json().then(text => {
                 console.log(text);
                 alert(text);
                 setError(text);
