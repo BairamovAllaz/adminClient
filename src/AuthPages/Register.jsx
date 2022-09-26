@@ -24,6 +24,8 @@ function Register() {
     };
     const loginUrl = "https://admin-allaz.herokuapp.com/register/register";
     fetch(loginUrl, {
+      credentials: "same-origin",
+      withCredentials: true,
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
