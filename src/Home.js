@@ -127,14 +127,8 @@ function Home() {
     setSelectedRows(parametr);
   };
 
-
-  useEffect(() => { 
-    console.log(selectedRows)
-  },[selectedRows])
   const Delete = (e) => {
-    e.preventDefault();
     const loginUrl = "https://admin-allaz.herokuapp.com/user/delete";
-
     selectedRows.map(data => {
       fetch(loginUrl, {
         credentials: "same-origin",
@@ -211,34 +205,36 @@ function Home() {
           <Navbar.Brand href="#home">
             <img
               alt=""
-              src="https://p7.hiclipart.com/preview/429/434/396/computer-icons-icon-design-business-administration-clip-art-admin-icon.jpg"
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSSy-1tccfBX99nwlQc8Qx9n5NoPFqqTk2Iek4w6hkpLJZxh4aBJrXw0jgJOUdQdv_KXg&usqp=CAU"
               width="40"
               height="30"
               className="d-inline-block align-top"
             />{" "}
             <span>Admin Panel</span>
-          </Navbar.Brand>
-          <Navbar.Brand href="#home">
-            <Button className="But" variant="danger" onClick={Delete}>
-              <AiOutlineDelete />
-            </Button>
-            <Button
-              className="But"
-              variant="secondary"
-              onClick={() => Update("Block")}
-            >
-              <TbLock />
-            </Button>
-            <Button
-              className="But"
-              variant="secondary"
-              onClick={() => Update("UnBlock")}
-            >
-              <TbLockOpen />
-            </Button>
-            <Button className="But" variant="success" onClick={logOut}>
-              <AiOutlineLogout />
-            </Button>
+            <span className="SpanDiv">
+              <div className="inner">
+                <Button className="But" variant="danger" onClick={Delete}>
+                  <AiOutlineDelete />
+                </Button>
+                <Button
+                  className="But"
+                  variant="secondary"
+                  onClick={() => Update("Block")}
+                >
+                  <TbLock />
+                </Button>
+                <Button
+                  className="But"
+                  variant="secondary"
+                  onClick={() => Update("UnBlock")}
+                >
+                  <TbLockOpen />
+                </Button>
+                <Button className="But" variant="success" onClick={logOut}>
+                  <AiOutlineLogout />
+                </Button>
+              </div>
+            </span>
           </Navbar.Brand>
         </Container>
       </Navbar>
