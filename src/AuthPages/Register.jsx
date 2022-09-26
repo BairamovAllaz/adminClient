@@ -34,10 +34,11 @@ function Register() {
       method: "POST",
     })
       .then(d => {
+          const n = d.clone();
         if (!d.ok) {
           console.log(
             "From server: " +
-              d.text().then(text => {
+              n.text().then(text => {
                 console.log(text);
                 alert(text);
                 setError(text);
