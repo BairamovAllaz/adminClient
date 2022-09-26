@@ -25,6 +25,8 @@ function Login() {
     };
     const loginUrl = "https://admin-allaz.herokuapp.com/register/login";
     fetch(loginUrl, {
+      credentials: "same-origin",
+      withCredentials: true,
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
@@ -46,10 +48,10 @@ function Login() {
         return d.json();
       })
       .then(res => {
-          console.log(res);
-          storeUser(res);
-          console.log("ok");
-          navigate("/");
+        console.log(res);
+        storeUser(res);
+        console.log("ok");
+        navigate("/");
       })
       .catch(err => {
         console.log(err);
