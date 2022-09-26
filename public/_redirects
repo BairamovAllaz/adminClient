@@ -1,1 +1,4 @@
-/api/* https://admin-allaz.herokuapp.com/:splat 200!
+[[redirects]]
+from = "/*"
+to = "/index.html"
+status = 200
