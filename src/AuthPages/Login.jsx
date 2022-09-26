@@ -25,27 +25,24 @@ function Login() {
     };
     const loginUrl = "https://admin-allaz.herokuapp.com/register/login";
     fetch(loginUrl, {
-      credentials: "same-origin",
-      withCredentials: true,
       headers: {
-        Accept: "application/json",
         "Content-Type": "application/json",
       },
       body: JSON.stringify(user),
       method: "POST",
     })
       .then(d => {
-        if(!d.ok){
-        console.log(
-          "From server: " +
-          d.text().then(text => {
-            console.log(text);
-            alert(text);
-            setError(text);
-          })
+        if (!d.ok) {
+          console.log(
+            "From server: " +
+              d.text().then(text => {
+                console.log(text);
+                alert(text);
+                setError(text);
+              })
           );
         }
-          return d.json();
+        return d.json();
       })
       .then(res => {
         if (error === "") {
@@ -53,7 +50,7 @@ function Login() {
           storeUser(res);
           console.log("ok");
           navigate("/");
-        }else{ 
+        } else {
           storeUser(null);
         }
       })
