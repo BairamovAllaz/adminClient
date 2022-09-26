@@ -25,24 +25,27 @@ function Login() {
     };
     const loginUrl = "https://admin-allaz.herokuapp.com/register/login";
     fetch(loginUrl, {
+      withCredentials : true,
       headers: {
+        Accept: "application/json",
         "Content-Type": "application/json",
       },
       body: JSON.stringify(user),
       method: "POST",
     })
-      .then(d => d.json()
-        // if (!d.ok) {
-        //   console.log(
-        //     "From server: " +
-        //       d.json().then(text => {
-        //         console.log(text);
-        //         alert(text);
-        //         setError(text);
-        //       })
-        //   );
-        // }
-      )
+      .then(d => {
+        if (!d.ok) {
+          console.log(
+            "From server: " +
+              d.json().then(text => {
+                console.log(text);
+                alert(text);
+                setError(text);
+              })
+          );
+        }
+        return d.json();
+      })
       .then(res => {
         if (error === "") {
           console.log(res);
