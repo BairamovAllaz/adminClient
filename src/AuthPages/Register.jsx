@@ -24,24 +24,19 @@ function Register() {
     };
     const loginUrl = "https://admin-allaz.herokuapp.com/register/register";
     fetch(loginUrl, {
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
       body: JSON.stringify(User),
       method: "POST",
     })
       .then(d => {
-        if (!d.ok) {
-          console.log(
-            "From server: " +
-              d.text().then(text => {
-                console.log(text);
-                alert(text);
-                setError(text);
-              })
-          );
-        }
+        // if (!d.ok) {
+        //   console.log(
+        //     "From server: " +
+        //       d.text().then(text => {
+        //         console.log(text);
+        //         alert(text);
+        //         setError(text);
+        //       })
+        //   );
         return d.json();
       })
       .then(res => {
