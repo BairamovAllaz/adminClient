@@ -48,7 +48,7 @@ function Home() {
   const [users, setUsers] = useState([]);
   const [selectedRows, setSelectedRows] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:8100/user/getusers")
+    fetch("https://admin-allaz.herokuapp.com/user/getusers")
       .then(data => data.json())
       .then(js => {
         setUsers(js);
@@ -57,7 +57,7 @@ function Home() {
           navigate("/Login");
         }
         let obj = js.find(o => o.Id == localStorage.getItem("Id"));
-        if(obj.status == "Blocked") { 
+        if (obj.status == "Blocked") {
           navigate("/Login");
         }
       })
@@ -128,7 +128,7 @@ function Home() {
   };
 
   const Delete = () => {
-    const loginUrl = "http://localhost:8100/user/delete";
+    const loginUrl = "https://admin-allaz.herokuapp.com/user/delete";
 
     selectedRows.map(data => {
       fetch(loginUrl, {
@@ -166,7 +166,7 @@ function Home() {
   };
 
   const Update = typeu => {
-    const loginUrl = `http://localhost:8100/user/${typeu}`;
+    const loginUrl = `https://admin-allaz.herokuapp.com/user/${typeu}`;
     selectedRows.map(data => {
       fetch(loginUrl, {
         credentials: "same-origin",

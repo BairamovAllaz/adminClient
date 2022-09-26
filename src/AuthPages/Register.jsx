@@ -22,7 +22,7 @@ function Register() {
       password: password,
       passwordverify: passwordVerify,
     };
-    const loginUrl = "http://localhost:8100/register/register";
+    const loginUrl = "https://admin-allaz.herokuapp.com/register/register";
     fetch(loginUrl, {
       credentials: "same-origin",
       headers: {
