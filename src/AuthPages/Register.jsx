@@ -32,30 +32,32 @@ function Register() {
       },
       body: JSON.stringify(User),
       method: "POST",
+    }).then(d => { 
+      if(!d.ok) {throw d}
+      return d.json();
     })
-      .then(d => {
-        const n = d.clone();
-        if (!d.ok) {
-          console.log(
-            "From server: " +
-              n.text().then(text => {
-                console.log(text);
-                alert(text);
-                navigate("/Register");
-              })
-          );
-        }
-        return d.json();
-      })
+      // .then(d => {
+      //   const n = d.clone();
+      //   if (!d.ok) {
+      //     console.log(
+      //       "From server: " +
+      //         n.text().then(text => {
+      //           console.log(text);
+      //           alert(text);
+      //           window.location.reload();
+      //         })
+      //     );
+      //   }
+      //   return d.json();
+      // })
       .then(res => {
-          console.log(res);
           storeUser(res);
-          console.log("ok");
           navigate("/");
-          storeUser(null);
       })
       .catch(err => {
-        console.log(err);
+       err.text().then(errorMessage => {
+          alert(errorMessage);
+       });
       });
   };
 
