@@ -30,18 +30,26 @@ function Register() {
       },
       body: JSON.stringify(User),
       method: "POST",
-    }).then(d => { 
-      if(!d.ok) {throw d}
-      return d.json();
     })
+      .then(d => {
+        if (!d.ok) {
+          throw d;
+        }
+        return d.json();
+      })
       .then(res => {
-          storeUser(res);
-          navigate("/");
+        storeUser(res);
+        navigate("/");
       })
       .catch(err => {
-       err.text().then(errorMessage => {
+        err.text().then(errorMessage => {
           alert(errorMessage);
-       });
+        });
+        setFirstName("");
+        setLastName("");
+        setEmail("");
+        setPassword("");
+        setPasswordVerify("");
       });
   };
 
@@ -69,6 +77,7 @@ function Register() {
               onChange={e => {
                 setFirstName(e.target.value);
               }}
+              value={FirstName}
             />
             <input
               className="SingUpInput"
@@ -79,6 +88,7 @@ function Register() {
               onChange={e => {
                 setLastName(e.target.value);
               }}
+              value={lastName}
             />
             <input
               className="SingUpInput"
@@ -89,6 +99,7 @@ function Register() {
               onChange={e => {
                 setEmail(e.target.value);
               }}
+              value={email}
             />
             <input
               className="SingUpInput"
@@ -99,6 +110,7 @@ function Register() {
               onChange={e => {
                 setPassword(e.target.value);
               }}
+              value={password}
             />
             <input
               className="SingUpInput"
@@ -109,6 +121,7 @@ function Register() {
               onChange={e => {
                 setPasswordVerify(e.target.value);
               }}
+              value={passwordVerify}
             />
             <button onClick={SubmitRegister} className="SignUpButton">
               Sign up

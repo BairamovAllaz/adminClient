@@ -45,6 +45,8 @@ function Login() {
         err.text().then(errorMessage => {
           alert(errorMessage);
         });
+        setemail("");
+        setpassword("");
       });
   };
 
@@ -66,6 +68,7 @@ function Login() {
               onChange={e => {
                 setemail(e.target.value);
               }}
+              value = {email}
             />
             <input
               type="password"
@@ -76,6 +79,7 @@ function Login() {
               onChange={e => {
                 setpassword(e.target.value);
               }}
+              value = {password}
             />
             <button onClick={LoginTo} className="loginButton">
               Login
