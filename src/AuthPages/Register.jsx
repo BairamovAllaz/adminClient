@@ -8,7 +8,6 @@ function Register() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [passwordVerify, setPasswordVerify] = useState("");
-  const [error, setError] = useState("");
 
   const navigate = useNavigate();
   const SubmitRegister = e => {
@@ -36,20 +35,6 @@ function Register() {
       if(!d.ok) {throw d}
       return d.json();
     })
-      // .then(d => {
-      //   const n = d.clone();
-      //   if (!d.ok) {
-      //     console.log(
-      //       "From server: " +
-      //         n.text().then(text => {
-      //           console.log(text);
-      //           alert(text);
-      //           window.location.reload();
-      //         })
-      //     );
-      //   }
-      //   return d.json();
-      // })
       .then(res => {
           storeUser(res);
           navigate("/");

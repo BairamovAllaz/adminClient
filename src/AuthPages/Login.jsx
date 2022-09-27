@@ -9,7 +9,6 @@ function Login() {
   const navigate = useNavigate();
   const [email, setemail] = useState("");
   const [password, setpassword] = useState("");
-  const [error, setError] = useState("");
 
   const storeUser = token => {
     localStorage.setItem("Id", JSON.stringify(token.Id));
@@ -35,31 +34,18 @@ function Login() {
       method: "POST",
     })
       .then(d => {
-        const n = d.clone();
         if (!d.ok) {
-          console.log(
-            "From server: " +
-              n.text().then(text => {
-                console.log(text);
-                alert(text);
-                setError(text);
-              })
-          );
+          throw d;
         }
-        return d.json();
       })
       .then(res => {
-        if (error === "") {
-          console.log(res);
-          storeUser(res);
-          console.log("ok");
-          navigate("/");
-        } else {
-          storeUser(null);
-        }
+        storeUser(res);
+        navigate("/");
       })
       .catch(err => {
-        console.log(err);
+        err.text().then(errorMessage => {
+          alert(errorMessage);
+        });
       });
   };
 
