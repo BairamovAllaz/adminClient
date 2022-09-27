@@ -13,7 +13,6 @@ function Register() {
   const SubmitRegister = e => {
     e.preventDefault();
     localStorage.clear();
-    setError("");
     const User = {
       firstName: FirstName,
       lastName: lastName,

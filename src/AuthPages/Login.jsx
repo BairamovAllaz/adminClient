@@ -17,7 +17,6 @@ function Login() {
   const LoginTo = e => {
     e.preventDefault();
     localStorage.clear();
-    setError("");
     const user = {
       email: email,
       password: password,
