@@ -11,7 +11,6 @@ import { TbLockOpen } from "react-icons/tb";
 import { AiOutlineLogout } from "react-icons/ai";
 import styled from "styled-components";
 import Table from "./Components/Table";
-import CircularJSON from "circular-json";
 import "./Home.css";
 
 const Styles = styled.div`
@@ -55,10 +54,12 @@ function Home() {
         let isExist = js.some(a => localStorage.getItem("Id") == a.Id);
         if (isExist === false) {
           navigate("/Login");
+          alert("Your user deleted try to create a new user");
         }
         let obj = js.find(o => o.Id == localStorage.getItem("Id"));
         if (obj.status == "Blocked") {
           navigate("/Login");
+          alert("Your user blocked try to create a new user or Wait to someone to ACTIVE your user");
         }
       })
       .catch(err => {
