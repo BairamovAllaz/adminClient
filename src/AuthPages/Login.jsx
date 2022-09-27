@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useState } from "react";
@@ -14,6 +14,10 @@ function Login() {
     localStorage.setItem("Id", JSON.stringify(token.Id));
     localStorage.setItem("token", JSON.stringify(token.token));
   };
+
+  useEffect(() => {
+    localStorage.clear();
+  }, []);
   const LoginTo = e => {
     e.preventDefault();
     localStorage.clear();
@@ -36,6 +40,7 @@ function Login() {
         if (!d.ok) {
           throw d;
         }
+        return d.json();
       })
       .then(res => {
         storeUser(res);
@@ -68,7 +73,7 @@ function Login() {
               onChange={e => {
                 setemail(e.target.value);
               }}
-              value = {email}
+              value={email}
             />
             <input
               type="password"
@@ -79,7 +84,7 @@ function Login() {
               onChange={e => {
                 setpassword(e.target.value);
               }}
-              value = {password}
+              value={password}
             />
             <button onClick={LoginTo} className="loginButton">
               Login

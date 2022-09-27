@@ -10,6 +10,9 @@ function Register() {
   const [passwordVerify, setPasswordVerify] = useState("");
 
   const navigate = useNavigate();
+  useEffect(() => {
+    localStorage.clear();
+  }, []);
   const SubmitRegister = e => {
     e.preventDefault();
     localStorage.clear();
